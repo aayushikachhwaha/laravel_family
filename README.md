@@ -1,2 +1,50 @@
 # laravel_family
 Laravel project to add families with one person as family head. [family details, add more member, add more hobbies, image upload, validations]
+
+# Problem Statement
+The client wants to collect family information about his community. Please develop a form which should
+
+1. There should be one head of the family. 
+Name
+Surname
+Birthdate - Only accept if this is above 21 years
+Mobile No
+Address
+State <drop down>
+City  <drop down>
+Pincode
+Marital Status
+ - Is Married  -  If Yes, then ask for the Wedding date 
+ - Is Unmarried  - Then do nothing
+Hobbies 
+- Allow adding multiple hobbies with Add Hobby button
+Photo
+
+Then add family members  - Can add any number of a family member
+- Name
+- Birthdate 
+- Marital Status 
+- Is Married  -  If Yes, then ask for the Wedding date 
+ - Is Unmarried  - Then do nothing
+Education
+Photo 
+
+Display family head List with family member's count and click on count display family details. 
+
+# Installation steps:- 
+
+# install dependencies
+composer install
+npm install
+
+# create database
+create database named 'myfamily'
+
+# generate tables
+run 'php artisan migrate' to add tables to the database
+
+# add data to tables
+run 'php artisan db:seed' to add data to the tables
+
+# run the application
+run 'php artisan serve' to run the application
