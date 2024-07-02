@@ -252,7 +252,9 @@ $(document).ready(function() {
             },
             'head_mobile_no': {
                 required: true,
-                maxlength: 10
+                maxlength: 10,
+                minlength: 10,
+                digits: true
             },
             'head_address': {
                 required: true,
@@ -268,7 +270,9 @@ $(document).ready(function() {
             },
             'head_pincode': {
                 required: true,
-                maxlength: 10
+                maxlength: 6,
+                minlength: 6,
+                digits: true
             },
             'head_marital_status': {
                 required: true
