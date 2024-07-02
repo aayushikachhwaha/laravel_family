@@ -33,7 +33,7 @@
                                                 $photoPath = 'storage/head_photos/' . $familyHead->photo;
                                             @endphp
 
-                                            @if (file_exists(public_path($photoPath)))
+                                            @if ($familyHead->photo !='' && file_exists(public_path($photoPath)))
                                                 <div>
                                                     <img style="max-width: 150px; max-height: 150px;" src="{{ asset($photoPath) }}" alt="Family Head Photo">
                                                 </div>
