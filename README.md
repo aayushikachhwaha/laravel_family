@@ -56,3 +56,6 @@ php artisan db:seed --class=FamilySeeder
 # run the application
 run 'npm run dev' 
 run 'php artisan serve' to run the application
+
+# access the application
+http://127.0.0.1:8000/families or {your-path}/families
