@@ -55,6 +55,7 @@ php artisan db:seed --class=FamilySeeder
 
 # make photo directory and create a symbolic link from public/storage to storage/app/public
 mkdir -p storage/app/public/member_photos
+
 php artisan storage:link
 
 # run the application
