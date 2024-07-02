@@ -35,7 +35,11 @@ Display family head List with family member's count and click on count display f
 
 # install dependencies
 composer install
+
 npm install
+
+# env
+copy envexample file to a new env file on root
 
 # create database
 create database named 'myfamily'
