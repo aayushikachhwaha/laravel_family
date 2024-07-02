@@ -56,10 +56,16 @@
                         <tr>
                             <th>Photo</th>
                             <td>
-                                @if($family->photo)
-                                    <img src="{{ asset('storage/head_photos/' . $family->photo) }}" alt="Family Head Photo" style="max-width: 150px; max-height: 150px;">
+                                @php
+                                    $photoPath = 'storage/head_photos/' . $family->photo;
+                                @endphp
+
+                                @if (file_exists(public_path($photoPath)))
+                                    <div>
+                                        <img style="max-width: 150px; max-height: 150px;" src="{{ asset($photoPath) }}" alt="Family Head Photo">
+                                    </div>
                                 @else
-                                    No photo uploaded.
+                                    <p>No photo available</p>
                                 @endif
                             </td>
                         </tr>
@@ -106,10 +112,15 @@
                                     <tr>
                                         <th>Photo</th>
                                         <td>
-                                            @if($member->photo)
-                                                <img src="{{ asset('storage/head_photos/' . $member->photo) }}" alt="Member Photo" style="max-width: 150px; max-height: 150px;">
+                                            @php
+                                                $memPhotoPath = 'storage/head_photos/' . $member->photo;
+                                            @endphp
+                                            @if (file_exists(public_path($memPhotoPath)))
+                                                <div>
+                                                    <img style="max-width: 150px; max-height: 150px;" src="{{ asset($memPhotoPath) }}" alt="Family Head Photo">
+                                                </div>
                                             @else
-                                                No photo uploaded.
+                                                <p>No photo available</p>
                                             @endif
                                         </td>
                                     </tr>
