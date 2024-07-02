@@ -54,7 +54,7 @@ php artisan db:seed --class=CitySeeder
 php artisan db:seed --class=FamilySeeder
 
 # make photo directory and create a symbolic link from public/storage to storage/app/public
-mkdir -p storage/app/public/member_photos
+mkdir -p storage/app/public/head_photos
 
 php artisan storage:link
 
