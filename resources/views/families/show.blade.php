@@ -60,7 +60,7 @@
                                     $photoPath = 'storage/head_photos/' . $family->photo;
                                 @endphp
 
-                                @if (file_exists(public_path($photoPath)))
+                                @if ($family->photo !='' && file_exists(public_path($photoPath)))
                                     <div>
                                         <img style="max-width: 150px; max-height: 150px;" src="{{ asset($photoPath) }}" alt="Family Head Photo">
                                     </div>
@@ -112,12 +112,13 @@
                                     <tr>
                                         <th>Photo</th>
                                         <td>
+                                            
                                             @php
                                                 $memPhotoPath = 'storage/head_photos/' . $member->photo;
                                             @endphp
-                                            @if (file_exists(public_path($memPhotoPath)))
+                                            @if ($member->photo !='' && file_exists(public_path($memPhotoPath)))
                                                 <div>
-                                                    <img style="max-width: 150px; max-height: 150px;" src="{{ asset($memPhotoPath) }}" alt="Family Head Photo">
+                                                    <img style="max-width: 150px; max-height: 150px;" src="{{ asset($memPhotoPath) }}" alt="Family Member Photo">
                                                 </div>
                                             @else
                                                 <p>No photo available</p>
