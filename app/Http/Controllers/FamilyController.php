@@ -47,11 +47,11 @@ class FamilyController extends Controller
             'head_name' => 'required|max:255',
             'head_surname' => 'required|max:255',
             'head_birthdate' => 'required|date|before_or_equal:today',
-            'head_mobile_no' => 'required|max:20',
+            'head_mobile_no' => 'numeric|required',
             'head_address' => 'required|max:255',
             'head_state' => 'required',
             'head_city' => 'required',
-            'head_pincode' => 'required|max:10',
+            'head_pincode' => 'numeric|required',
             'head_marital_status' => 'required|in:married,unmarried',
             'head_wedding_date' => 'nullable|required_if:head_marital_status,married|date',
             'head_photo' => 'nullable|image|max:2048', // 2MB max
@@ -100,7 +100,9 @@ class FamilyController extends Controller
 
             // Save Family Members
             if ($request->has('members')) {
-                foreach ($request->input('members') as $memberData) {
+                
+                foreach ($request->input('members') as $key => $memberData) {
+                    //echo '<pre>'; print_r($request->input('members')[0]); die;
                     $member = new FamilyMember();
                     $member->family_head_id = $familyHead->id; // Assign the family head ID
                     $member->name = $memberData['name'];
@@ -112,8 +114,8 @@ class FamilyController extends Controller
                     $member->education = $memberData['education'] ?? null;
 
                     // Handle member photo upload
-                    if (isset($memberData['photo'])) {
-                        $memberPhotoPath = $memberData['photo']->store('public/head_photos');
+                    if ($request->hasFile("members.$key.photo")) {
+                        $memberPhotoPath = $request->file("members.$key.photo")->store('public/head_photos');
                         $member->photo = basename($memberPhotoPath);
                     }
 
