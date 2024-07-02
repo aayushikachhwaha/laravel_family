@@ -48,7 +48,11 @@ create database named 'myfamily'
 run 'php artisan migrate' to add tables to the database
 
 # add data to tables
-run 'php artisan db:seed' to add data to the tables
+To add data to the tables, run seeders - 
+php artisan db:seed --class=StateSeeder
+php artisan db:seed --class=CitySeeder
+php artisan db:seed --class=FamilySeeder
 
 # run the application
+run 'npm run dev' 
 run 'php artisan serve' to run the application
